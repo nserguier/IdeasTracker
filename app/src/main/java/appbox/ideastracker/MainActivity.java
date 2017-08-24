@@ -1988,6 +1988,7 @@ public class MainActivity extends AppCompatActivity implements
 
             String projectName = ((IProfile) drawerItem).getName().getText(MainActivity.this);
             switchToProject(projectName);
+            leftDrawer.closeDrawer();
         }
         return false;
     }
