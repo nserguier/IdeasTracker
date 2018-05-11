@@ -51,7 +51,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         mIdea = text;
         mTabNumber = tabNumber;
         mLayout = LayoutInflater.from(context).inflate(R.layout.horizontal_item_view, null, false);
-
     }
 
     public static void setBigText(boolean b) {
@@ -128,7 +127,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
                         break;
 
                     case 1: //Idea text
-                        holder.txtView.setSingleLine();
                         holder.txtView.setText(mIdea);
                         holder.txtView.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -166,7 +164,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
                         break;
 
                     case 1: //Idea text
-                        holder.txtView.setSingleLine();
                         holder.txtView.setText(mIdea);
                         holder.txtView.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -203,7 +200,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
                         break;
 
                     case 1: //idea text
-                        holder.txtView.setSingleLine();
                         holder.txtView.setText(mIdea);
                         holder.txtView.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
