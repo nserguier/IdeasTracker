@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId "appbox.gameideas"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 11
         versionName "1.2.1"
     }
