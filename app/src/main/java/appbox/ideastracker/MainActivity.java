@@ -233,6 +233,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
+        switchToProjectColors();
     }
 
     @Override
@@ -285,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        //Speech reckognition
+        //Speech recognition
         if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
             ArrayList<String> matches = data.getStringArrayListExtra(
                     RecognizerIntent.EXTRA_RESULTS);
@@ -337,8 +338,6 @@ public class MainActivity extends AppCompatActivity implements
             }
 
             DataEntry.setTableName(activeProfileName);
-
-            switchToProjectColors();
         }
     }
 
