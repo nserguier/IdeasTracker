@@ -1,6 +1,5 @@
 package appbox.ideastracker;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -39,7 +38,6 @@ public class MyIntro extends AppIntro2 {
     }
 
     private void goToMainActivity() {
-        Intent i = new Intent(MyIntro.this, MainActivity.class);
-        startActivity(i);
+        onBackPressed();
     }
 }

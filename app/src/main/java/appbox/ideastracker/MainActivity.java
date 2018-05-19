@@ -926,8 +926,9 @@ public class MainActivity extends AppCompatActivity implements
 
     // Launch the app introduction
     private void forceIntro() {
-        Intent i = new Intent(MainActivity.this, MyIntro.class);
-        startActivity(i);
+        Intent intent = new Intent(MainActivity.this, MyIntro.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
     }
 
     // Shows the tutorial for the first project creation
