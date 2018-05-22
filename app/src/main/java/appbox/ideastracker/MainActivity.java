@@ -2079,7 +2079,7 @@ public class MainActivity extends AppCompatActivity implements
 
         if (v instanceof FloatingActionButton) { // FAB click- new idea
             newIdeaDialog();
-        } else { // Toolbar click - display other project list
+        } else if (!mNoProject) { // Toolbar click - display other project list
             // Drop down menu - droppy
             if (mDroppyBuilder == null) {
                 mDroppyBuilder = new DroppyMenuPopup.Builder(MainActivity.this, mToolbar);
