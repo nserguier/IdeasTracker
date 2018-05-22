@@ -50,6 +50,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -135,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements
 
     // UI elements
     private Toolbar mToolbar;
+    private ImageView mArrowDropDown;
     private FloatingActionButton mFab;
     private FragmentManager mFragmentManager;
     private NonSwipeableViewPager mViewPager;
@@ -205,6 +207,7 @@ public class MainActivity extends AppCompatActivity implements
         introOnFirstStart();
 
         setUpUI();
+        mArrowDropDown = (ImageView) mToolbar.findViewById(R.id.arrow_drop_down);
 
         // Fragments manager to populate the tabs
         mFragmentManager = getSupportFragmentManager();
@@ -221,13 +224,13 @@ public class MainActivity extends AppCompatActivity implements
 
         //TABLES
         loadProjects();
+        refreshArrowDropDownVisibility();
 
         // Select favorite project
         selectFavoriteProject();
 
         // Set up drawers in background tasks
         setUpDrawers();
-
     }
 
     @Override
@@ -712,15 +715,15 @@ public class MainActivity extends AppCompatActivity implements
             saveProject(new Project(projectName, defaultPrimaryColor, defaultSecondaryColor, defaultTextColor));
 
             //open the profile drawer and select the new profile
-
-
             header.removeProfile(mAddProject);
             header.addProfile(mAddProject, mProfiles.size());
             header.setActiveProfile(newProfile);
             mSelectedProfileIndex = mProfiles.size() - 2;
             switchToProjectColors();
 
+            //refresh toolbar and drawer views
             mToolbar.setTitle(projectName);
+            refreshArrowDropDownVisibility();
             displayIdeasCount();
 
             if (mNoProject) {
@@ -842,10 +845,10 @@ public class MainActivity extends AppCompatActivity implements
                         }
                         switchToExistingProject(mSelectedProfileIndex);
 
-                        //favorite star
+                        //refresh toolbar and drawer view
                         refreshStar();
-                        //search mode
                         disableSearchMode();
+                        refreshArrowDropDownVisibility();
                     }
                 })
                 .setNegativeButton(android.R.string.no, null)
@@ -1389,6 +1392,12 @@ public class MainActivity extends AppCompatActivity implements
             mIdeasMenuGuide = null;
             mTinyDB.putBoolean(getString(R.string.idea_menu_pref), false);
         }
+    }
+
+    public void refreshArrowDropDownVisibility() {
+        mArrowDropDown.setVisibility(
+                (mProjects.size() > 1) ? View.VISIBLE : View.GONE
+        );
     }
 
     // Convert dp to px
