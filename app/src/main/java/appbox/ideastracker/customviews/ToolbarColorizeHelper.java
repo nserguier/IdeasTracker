@@ -95,40 +95,6 @@ public class ToolbarColorizeHelper {
             //Step 3: Changing the color of title and subtitle.
             toolbarView.setTitleTextColor(toolbarIconsColor);
             toolbarView.setSubtitleTextColor(toolbarIconsColor);
-
-            //Step 4: Changing the color of the Overflow Menu icon.
-            setOverflowButtonColor(activity, colorFilter);
         }
-    }
-
-    /**
-     * It's important to set overflowDescription atribute in styles, so we can grab the reference
-     * to the overflow icon. Check: res/values/styles.xml
-     *
-     * @param activity
-     * @param colorFilter
-     */
-    private static void setOverflowButtonColor(final Activity activity, final PorterDuffColorFilter colorFilter) {
-        final String overflowDescription = activity.getString(R.string.abc_action_menu_overflow_description);
-        final ViewGroup decorView = (ViewGroup) activity.getWindow().getDecorView();
-        final ViewTreeObserver viewTreeObserver = decorView.getViewTreeObserver();
-        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                final ArrayList<View> outViews = new ArrayList<View>();
-                decorView.findViewsWithText(outViews, overflowDescription,
-                        View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
-                if (outViews.isEmpty()) {
-                    return;
-                }
-                AppCompatImageView overflow = (AppCompatImageView) outViews.get(0);
-                overflow.setColorFilter(colorFilter);
-                removeOnGlobalLayoutListener(decorView, this);
-            }
-        });
-    }
-
-    private static void removeOnGlobalLayoutListener(View v, ViewTreeObserver.OnGlobalLayoutListener listener) {
-        v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
     }
 }

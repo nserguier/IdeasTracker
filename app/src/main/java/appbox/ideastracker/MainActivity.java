@@ -1554,6 +1554,7 @@ public class MainActivity extends AppCompatActivity implements
     private Project[] getOtherProjects() {
 
         int size = mProjects.size() - 1;
+        if(size < 0) return new Project[0];
         Project[] otherProjects = new Project[size];
         Object currentProject = mProjects.remove(mSelectedProfileIndex);
 
@@ -2088,7 +2089,7 @@ public class MainActivity extends AppCompatActivity implements
 
         if (v instanceof FloatingActionButton) { // FAB click- new idea
             newIdeaDialog();
-        } else if (!mNoProject) { // Toolbar click - display other project list
+        } else if (mProjects.size() > 1) { // Toolbar click - display other project list
             // Drop down menu - droppy
             if (mDroppyBuilder == null) {
                 mDroppyBuilder = new DroppyMenuPopup.Builder(MainActivity.this, mToolbar);
