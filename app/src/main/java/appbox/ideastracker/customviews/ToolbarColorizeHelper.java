@@ -17,6 +17,7 @@ limitations under the License.
 */
 
 import android.app.Activity;
+import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Build;
@@ -28,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -84,6 +86,12 @@ public class ToolbarColorizeHelper {
                 }
             }
 
+            //Step 2.5:Change color of the drop down menu icon
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                ImageView arrowImgView = (ImageView) toolbarView.findViewById(R.id.arrow_drop_down);
+                arrowImgView.setImageTintList(ColorStateList.valueOf(toolbarIconsColor));
+            }
+
             //Step 3: Changing the color of title and subtitle.
             toolbarView.setTitleTextColor(toolbarIconsColor);
             toolbarView.setSubtitleTextColor(toolbarIconsColor);
@@ -121,10 +129,6 @@ public class ToolbarColorizeHelper {
     }
 
     private static void removeOnGlobalLayoutListener(View v, ViewTreeObserver.OnGlobalLayoutListener listener) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            v.getViewTreeObserver().removeGlobalOnLayoutListener(listener);
-        } else {
-            v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
-        }
+        v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
     }
 }

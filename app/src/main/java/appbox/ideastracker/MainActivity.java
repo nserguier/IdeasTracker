@@ -233,7 +233,9 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
-        switchToProjectColors();
+        if (!mNoProject) {
+            switchToProjectColors();
+        }
     }
 
     @Override
@@ -2077,7 +2079,7 @@ public class MainActivity extends AppCompatActivity implements
 
         if (v instanceof FloatingActionButton) { // FAB click- new idea
             newIdeaDialog();
-        } else { // Toolbar click - display othe rproject list
+        } else { // Toolbar click - display other project list
             // Drop down menu - droppy
             if (mDroppyBuilder == null) {
                 mDroppyBuilder = new DroppyMenuPopup.Builder(MainActivity.this, mToolbar);
