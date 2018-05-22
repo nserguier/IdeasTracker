@@ -26,7 +26,7 @@
     <string name="from">De</string>
     <string name="functions">Fonctions</string>
     <string name="functions_label">Fonctions</string>
-    <string name="get_started">Créez un nouveau projet\nTouchez n\'importe où</string>
+    <string name="get_started">Aucun project pour le moment</string>
     <string name="handle_idea_content">Plusieurs actions sont disponibles sur vos idées:\n- Touchez pour une vue détailée de l\'idée et pouvoir la modifier\n- Maintenez enfoncé pour réordonner dans la liste\n- Faîtes glisser vers la droite lorsque vous avez terminé\n- Faîtes glisser vers la gauche pour remettre à plus tard</string>
     <string name="help">Aide</string>
     <string name="help_feedback"><![CDATA[Aide & contact]]></string>

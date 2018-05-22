@@ -1654,8 +1654,8 @@ public class MainActivity extends AppCompatActivity implements
             // NO PROJECT
             if (DataEntry.TABLE_NAME.equals("[]")) {
                 rootView = inflater.inflate(R.layout.no_project_layout, container, false);
-                LinearLayout lin = (LinearLayout) rootView.findViewById(R.id.noProject);
-                lin.setOnClickListener(new View.OnClickListener() {
+                Button newProjectButton = (Button) rootView.findViewById(R.id.newProjectButton);
+                newProjectButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         mainActivity.newProjectDialog();

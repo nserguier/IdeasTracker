@@ -45,7 +45,7 @@
     <string name="priority">Priority</string>
     <string name="do_later">Do later</string>
     <string name="ok">OK</string>
-    <string name="get_started">Get started with a new project\nTap anywhere</string>
+    <string name="get_started">No projects yet, let\'s get started</string>
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
     <string name="hint_edit_idea">Your idea or task</string>
