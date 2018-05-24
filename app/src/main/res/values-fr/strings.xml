@@ -111,5 +111,6 @@
     <string name="search">Rechercher</string>
     <string name="search_tab">Rechercher</string>
     <string name="voice_msg">Quelle est votre idée ?</string>
+    <string name="empty_ideas">Aucune idée ici</string>
 
 </resources>

@@ -1676,6 +1676,7 @@ public class MainActivity extends AppCompatActivity implements
             //Inflate the list view
             rootView = inflater.inflate(R.layout.fragment_list_view, container, false);
             DragListView mDragListView = (DragListView) rootView.findViewById(R.id.list);
+            View emptyView = rootView.findViewById(R.id.empty_view);
             mDragListView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
             //Determine tab number
@@ -1710,7 +1711,8 @@ public class MainActivity extends AppCompatActivity implements
             });
 
             //Set adapter
-            ItemAdapter itemAdapter = new ItemAdapter(getContext(), tabNumber, R.layout.recycler_view_item, R.id.horizontal_recycler_view);
+            ItemAdapter itemAdapter = new ItemAdapter(getContext(), tabNumber,
+                    R.layout.recycler_view_item, R.id.horizontal_recycler_view, emptyView);
             mDragListView.setAdapter(itemAdapter, false);
             mDragListView.setCanDragHorizontally(false);
 

@@ -1,6 +1,23 @@
-<com.woxthebox.draglistview.DragListView android:layout_width="match_parent"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/list"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    android:animateLayoutChanges="true">
+
+    <com.woxthebox.draglistview.DragListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:text="@string/empty_ideas"
+        android:textColor="#C2C2C2"
+        android:textSize="20sp"/>
+</FrameLayout>
+

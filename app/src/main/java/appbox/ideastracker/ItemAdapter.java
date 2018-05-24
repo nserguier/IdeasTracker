@@ -26,6 +26,8 @@ import android.view.ViewGroup;
 
 import com.woxthebox.draglistview.DragItemAdapter;
 
+import java.util.List;
+
 import appbox.ideastracker.recycler.HorizontalAdapter;
 import appbox.ideastracker.recycler.MyRecyclerView;
 
@@ -37,7 +39,9 @@ public class ItemAdapter extends DragItemAdapter<Pair<Integer, String>, ItemAdap
     private Context mContext;
     private int mTabNumber;
 
-    public ItemAdapter(Context context, int tabNumber, int layoutId, int grabHandleId) {
+    private View mEmptyView;
+
+    ItemAdapter(Context context, int tabNumber, int layoutId, int grabHandleId, View emptyView) {
         super(true);
         mLayoutId = layoutId;
         mGrabHandleId = grabHandleId;
@@ -45,8 +49,16 @@ public class ItemAdapter extends DragItemAdapter<Pair<Integer, String>, ItemAdap
 
         mContext = context;
         mTabNumber = tabNumber;
+        mEmptyView = emptyView;
     }
 
+    @Override
+    public void setItemList(List<Pair<Integer, String>> itemList) {
+        super.setItemList(itemList);
+        mEmptyView.setVisibility(
+                itemList.isEmpty() ? View.VISIBLE : View.GONE
+        );
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
