@@ -1667,9 +1667,11 @@ public class MainActivity extends AppCompatActivity implements
             if (MainActivity.searchMode) {
                 rootView = inflater.inflate(R.layout.search_view, container, false);
                 ListView list = (ListView) rootView.findViewById(R.id.search_list);
+                View emptyView = rootView.findViewById(R.id.search_empty_view);
 
                 SearchListAdapter adapter = SearchListAdapter.getInstance(getContext());
                 list.setAdapter(adapter);
+                list.setEmptyView(emptyView);
                 return rootView;
             }
 
