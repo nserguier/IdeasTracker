@@ -669,36 +669,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Count the ideas in the different tabs for the current project (table)
-     *
-     * @param tabNumber 0 for NOW+LATER, 1 for Now/IDEAS, 2 for LATER, 3 for DONE
-     * @return
+     * Count the active ideas (NOW + LATER) for the current project (table)
      */
-    public int getIdeasCount(int tabNumber) {
+    public int getIdeasCount() {
 
-        int count = 0;
-        Cursor cursor = null;
-
-        switch (tabNumber) {
-            case 0: //NOW+LATER
-                cursor = getReadableDatabase().rawQuery("select count(*) from " + DataEntry.TABLE_NAME + " where done=0 and temp=0", null);
-                break;
-
-            case 1: //NOW/IDEAS
-                cursor = getReadableDatabase().rawQuery("select count(*) from " + DataEntry.TABLE_NAME + " where done=0 and temp=0 and later=0", null);
-                break;
-
-            case 2: //LATER
-                cursor = getReadableDatabase().rawQuery("select count(*) from " + DataEntry.TABLE_NAME + " where done=0 and temp=0 and later=1", null);
-                break;
-
-            case 3: //DONE
-                cursor = getReadableDatabase().rawQuery("select count(*) from " + DataEntry.TABLE_NAME + " where done=1 and temp=0", null);
-                break;
-        }
+        Cursor cursor = getWritableDatabase().rawQuery("SELECT count(*) FROM " + DataEntry.TABLE_NAME + " WHERE [done]=0 AND [temp]=0", null);
 
         cursor.moveToFirst();
-        count = cursor.getInt(0);
+        int count = cursor.getInt(0);
         cursor.close();
 
         return count;

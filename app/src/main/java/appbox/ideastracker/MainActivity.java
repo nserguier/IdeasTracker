@@ -51,7 +51,6 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -1479,7 +1478,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     public void displayIdeasCount() {
-        int count = mDbHelper.getIdeasCount(0);
+        int count = mDbHelper.getIdeasCount();
 
         if (count == 0) {
             header.setSelectionSecondLine(getString(R.string.no_ideas));
@@ -1554,7 +1553,7 @@ public class MainActivity extends AppCompatActivity implements
     private Project[] getOtherProjects() {
 
         int size = mProjects.size() - 1;
-        if(size < 0) return new Project[0];
+        if (size < 0) return new Project[0];
         Project[] otherProjects = new Project[size];
         Object currentProject = mProjects.remove(mSelectedProfileIndex);
 
