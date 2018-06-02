@@ -4,6 +4,12 @@ apply plugin: 'com.google.gms.google-services'
 
 apply plugin: 'io.fabric'
 
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
 try {
     apply from: '../../../signing.gradle'
 } catch (ex) {
@@ -31,6 +37,9 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     //Support
     implementation 'com.android.support:appcompat-v7:26.1.0'
