@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "878424630684",
+    "firebase_url": "https://ideastracker-614b5.firebaseio.com",
+    "project_id": "ideastracker-614b5",
+    "storage_bucket": "ideastracker-614b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878424630684:android:9c58d8127a237111",
+        "android_client_info": {
+          "package_name": "appbox.gameideas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878424630684-cunkj1te2ea04k2l9e1l7n3k4ns361kv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "appbox.gameideas",
+            "certificate_hash": "5c2fcb44fcf29ef70d1fd4c2ba95e3c3351b5695"
+          }
+        },
+        {
+          "client_id": "878424630684-46bc1ugkuus879o82uchuu1l2irpck1h.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "878424630684-46bc1ugkuus879o82uchuu1l2irpck1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIOgoedohGUi8eUZtSwv-LSfNwSK4UmfU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878424630684-46bc1ugkuus879o82uchuu1l2irpck1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
