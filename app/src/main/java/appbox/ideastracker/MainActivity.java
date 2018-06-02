@@ -1012,7 +1012,7 @@ public class MainActivity extends AppCompatActivity implements
                 .setInfoText(getString(R.string.right_drawer_guide))
                 .setInfoTextSize(13)
                 .performClick(true)
-                .setTarget(mToolbar.getChildAt(2))
+                .setTarget(mToolbar.findViewById(R.id.action_settings))
                 .setListener(new MaterialIntroListener() {
                     @Override
                     public void onUserClicked(String MyMaterialIntroViewId) {
